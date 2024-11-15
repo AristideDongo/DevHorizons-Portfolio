@@ -2,7 +2,6 @@
 import { useState } from 'react';
 import { GrChapterNext, GrChapterPrevious } from "react-icons/gr";
 
-
 const experienceData = [
   {
     title: 'Développeur Front-End',
@@ -39,27 +38,27 @@ export default function Experience() {
 
   return (
     <div className='bg-[#001F3F]'>
-    <div className="w-full max-w-4xl h-[90px] mx-auto p-4">
-      <div className="shadow-sm shadow-[#ECF8F9] bg-[#ECF8F9] rounded-lg p-6">
-        <h2 className="text-2xl text-black font-bold mb-2">{experienceData[currentCardIndex].title}</h2>
-        <h3 className="text-lg text-gray-700 mb-4">{experienceData[currentCardIndex].company}</h3>
-        <p className="text-gray-900 text-xl font-semibold mb-4">{experienceData[currentCardIndex].description}</p>
-        <p className="text-base text-end font-semibold text-gray-600">{experienceData[currentCardIndex].date}</p>
+      <div className="w-full max-w-4xl h-[90px] mx-auto p-4">
+        <div className="shadow-sm shadow-[#ECF8F9] bg-[#ECF8F9] rounded-lg p-6">
+          <h2 className="text-2xl text-black font-bold mb-2">{experienceData[currentCardIndex].title}</h2>
+          <h3 className="text-lg text-gray-700 mb-4">{experienceData[currentCardIndex].company}</h3>
+          <p className="text-gray-900 text-xl font-semibold mb-4">{experienceData[currentCardIndex].description}</p>
+          <p className="text-base text-end font-semibold text-gray-600">{experienceData[currentCardIndex].date}</p>
+        </div>
       </div>
 
-    </div>
-      <div className="flex gap-5 p-20 justify-center mt-14">
+      <div className="flex gap-5 p-5 sm:p-10 justify-center mt-14">
         <button
           onClick={prevCard}
-          className="bg-[#116D6E] text-white py-5 px-6 hover:scale-95 transition duration-300 rounded-lg"
+          className="bg-[#116D6E] text-white py-3 px-6 sm:py-5 sm:px-8 hover:scale-95 transition duration-300 rounded-lg"
         >
-          <GrChapterPrevious />
+          <GrChapterPrevious size={24} />
         </button>
         <button
           onClick={nextCard}
-          className="bg-[#116D6E] text-white py-5 px-6 hover:scale-95 transition duration-300 rounded-lg"
+          className="bg-[#116D6E] text-white py-3 px-6 sm:py-5 sm:px-8 hover:scale-95 transition duration-300 rounded-lg"
         >
-          <GrChapterNext />
+          <GrChapterNext size={24} />
         </button>
       </div>
     </div>
