@@ -41,7 +41,7 @@ export default function projectCard() {
                             </div>
 
                             {/* Titre du projet */}
-                            <Link href={`/project/${project.id}`} target='_blank'>
+                            <Link href={`/project/${project.id}`}>
                             <p className="text-black font-extrabold text-xl mt-2 md:mt-0">
                                 {project.title}
                             </p>
