@@ -12,10 +12,10 @@ export default function projectCard() {
                         key={project.id}
                         className="rounded bg-[#ECF8F9] overflow-hidden shadow-lg flex flex-col">
                         <div className="relative">
-                            <Link href={project.link} target='_blank'>
+                            <Link href={`/project/${project.id}`}  target='_blank'>
                                 <Image
                                     className="w-full"
-                                    src={project.image}
+                                    src={project.image[0]}
                                     alt="Sunset in the mountains"
                                     width={0}
                                     height={0}
@@ -41,7 +41,7 @@ export default function projectCard() {
                             </div>
 
                             {/* Titre du projet */}
-                            <Link href={project.link} target='_blank'>
+                            <Link href={`/project/${project.id}`} target='_blank'>
                             <p className="text-black font-extrabold text-xl mt-2 md:mt-0">
                                 {project.title}
                             </p>

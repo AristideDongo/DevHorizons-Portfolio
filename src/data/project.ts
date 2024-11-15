@@ -5,7 +5,8 @@ export const ProjectsData = [
     id: "1",
     year: 2018,
     title: "Project title",
-    image: ProjectImage1,
+    description: "Petite description du projet 1. Un aperçu rapide des caractéristiques ou objectifs principaux.",
+    image: [ProjectImage1, ProjectImage1],
     techno: [{ name: "NextJs" }, { name: "NestJs" }, { name: "MongoDb" }],
     link: "https://facebook.com",
   },
@@ -14,7 +15,8 @@ export const ProjectsData = [
     year: 2019,
 
     title: "Project title",
-    image: ProjectImage1,
+    description: "Petite description du projet 1. Un aperçu rapide des caractéristiques ou objectifs principaux.",
+    image: [ProjectImage1, ProjectImage1],
     techno: [{ name: "NextJs" }, { name: "NestJs" }, { name: "MongoDb" }],
     link: "https://facebook.com",
 
@@ -24,7 +26,8 @@ export const ProjectsData = [
     year: 2020,
 
     title: "Project title",
-    image: ProjectImage1,
+    description: "Petite description du projet 1. Un aperçu rapide des caractéristiques ou objectifs principaux.",
+    image: [ProjectImage1, ProjectImage1],
     techno: [{ name: "NextJs" }, { name: "NestJs" }, { name: "MongoDb" }],
     link: "https://facebook.com",
 
@@ -34,7 +37,8 @@ export const ProjectsData = [
     year: 2021,
 
     title: "Project title",
-    image: ProjectImage1,
+    description: "Petite description du projet 1. Un aperçu rapide des caractéristiques ou objectifs principaux.",
+    image: [ProjectImage1, ProjectImage1],
     techno: [{ name: "NextJs" }, { name: "NestJs" }, { name: "MongoDb" }],
     link: "https://facebook.com",
 
@@ -44,7 +48,8 @@ export const ProjectsData = [
     year: 2022,
 
     title: "Project title",
-    image: ProjectImage1,
+    description: "Petite description du projet 1. Un aperçu rapide des caractéristiques ou objectifs principaux.",
+    image: [ProjectImage1, ProjectImage1],
     techno: [{ name: "NextJs" }, { name: "NestJs" }, { name: "MongoDb" }],
     link: "https://facebook.com",
 
@@ -54,7 +59,8 @@ export const ProjectsData = [
     year: 2023,
 
     title: "Project title",
-    image: ProjectImage1,
+    description: "Petite description du projet 1. Un aperçu rapide des caractéristiques ou objectifs principaux.",
+    image: [ProjectImage1, ProjectImage1],
     techno: [{ name: "NextJs" }, { name: "NestJs" }, { name: "MongoDb" }],
     link: "https://facebook.com",
 
