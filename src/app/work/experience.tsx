@@ -48,7 +48,7 @@ export default function Experience() {
       </div>
 
     </div>
-      <div className="flex gap-5 p-20 mt-24 justify-center">
+      <div className="flex gap-5 p-20 mt-40 justify-center">
         <button
           onClick={prevCard}
           className="bg-[#116D6E] text-white py-5 px-6 hover:scale-95 transition duration-300 rounded-lg"
