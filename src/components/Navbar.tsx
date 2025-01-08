@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useState } from 'react';
+import { Squeeze } from 'hamburger-react'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +27,13 @@ export default function Navbar() {
         onClick={menuActive}
         aria-label="Toggle Menu"
       >
-        {isOpen ? '✖' : '☰'}
+        <Squeeze 
+  color="white"
+  size={24}
+  toggled={isOpen}
+  toggle={menuActive}
+  label="Toggle menu"
+/>
       </button>
 
       {/* Menu */}
@@ -48,6 +55,27 @@ export default function Navbar() {
           className="block px-4 py-2 text-lg hover:bg-[#003366] md:hover:bg-transparent md:hover:text-gray-400"
         >
           Me
+        </Link>
+        <Link
+          href="/educations"
+          onClick={menuClose}
+          className="block px-4 py-2 text-lg hover:bg-[#003366] md:hover:bg-transparent md:hover:text-gray-400"
+        >
+          Educations
+        </Link>
+        <Link
+          href="/formations"
+          onClick={menuClose}
+          className="block px-4 py-2 text-lg hover:bg-[#003366] md:hover:bg-transparent md:hover:text-gray-400"
+        >
+          Formations
+        </Link>
+        <Link
+          href="/certificate"
+          onClick={menuClose}
+          className="block px-4 py-2 text-lg hover:bg-[#003366] md:hover:bg-transparent md:hover:text-gray-400"
+        >
+          Certificate
         </Link>
         <Link
           href="/work"
