@@ -2,7 +2,7 @@ import ProjectCard from "./projectCard";
 
 export default function Project() {
   return (
-    <div className="min-h-screen overflow-auto bg-[#001F3F] p-4">
+    <div id='project' className="min-h-screen overflow-auto bg-[#001F3F] p-4">
       <header className="text-center mb-8 mt-52">
         <h1 className="text-7xl font-bold text-[#F8F0E5] mb-2">
           An Application He Built
