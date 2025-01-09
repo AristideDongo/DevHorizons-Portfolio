@@ -1,53 +1,77 @@
 'use client'
-import Image from "next/image"
-import Meta from "@/images/meta.webp"
-import Experience from './experience';
 
 export default function Work() {
+  const companies = [
+    {
+      name: "Meta",
+      role: "Senior Frontend Developer",
+      period: "2022 - Present",
+      description: "Développement d'applications web performantes"
+    },
+    {
+      name: "Microsoft",
+      role: "Full Stack Developer",
+      period: "2020 - 2022",
+      description: "Création de solutions cloud innovantes"
+    },
+    {
+      name: "Amazon",
+      role: "Software Engineer",
+      period: "2018 - 2020",
+      description: "Optimisation des systèmes de e-commerce"
+    }
+  ]
+
   return (
-    <>
-      <div id='work' className="min-h-screen overflow-auto flex flex-col md:flex-row items-center justify-center bg-[#001F3F]">
-        {/* Conteneur principal */}
-        <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-7xl px-4 sm:px-6 py-12 space-y-8 md:space-y-0">
-          {/* Texte à gauche */}
-          <div className="flex-1 text-center md:text-left md:ml-10">
-            <div className="flex items-center justify-center md:justify-start">
-              <hr className='w-16 sm:w-24 mr-2 border-violet' />
-              <span className='text-[12px] sm:text-[15px] font-semibold text-[#FEAE6F] capitalize'>He has worked with</span>
-            </div>
-            <p className="text-[16px] sm:text-[18px] md:text-[20px] text-[#F3F3E0] font-medium mb-6">
-              j&apos;ai acquis une solide expérience dans le développement<br /> en créant des solutions intuitives <br /> et en collaborant avec des équipes diversifiées.
-            </p>
-            <h1 className="text-[36px] sm:text-[50px] md:text-[60px] lg:text-[80px] -mt-8 font-extrabold text-[#F3F3E0]">WORK</h1>
-            <h1 className="text-[36px] sm:text-[50px] md:text-[60px] lg:text-[80px] -mt-8 font-extrabold text-[#73EC8B]">EXPERIENCE.</h1>
+    <div id='work' className="min-h-screen flex flex-col items-center justify-center bg-[#001F3F] py-16">
+      <div className="w-full max-w-7xl px-4 sm:px-6">
+        {/* Header Section */}
+        <div className="text-center md:text-left mb-16">
+          <div className="flex mb-8 items-center justify-center md:justify-start">
+            <span className='text-3xl sm:text-4xl mt-[20px] text-[#F3F3E0] font-bold'>
+              Parcours Professionnel
+            </span>
           </div>
+          <p className="text-[18px] sm:text-[20px] text-[#F3F3E0] font-medium my-6 leading-relaxed max-w-2xl">
+            J&apos;ai eu l&apos;opportunité de collaborer avec des entreprises 
+            innovantes et de contribuer à des projets ambitieux qui ont façonné 
+            mon expertise.
+          </p>
+        </div>
 
-          {/* Images des entreprises */}
-          <div className="mt-8 md:mt-0 relative w-56 h-56 sm:w-72 sm:h-72 mx-auto">
-            <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center">
-              <div className="grid grid-cols-3 gap-2 sm:gap-4 relative z-10">
-                {/* Première rangée */}
-                <Image src={Meta} alt="Microsoft" width={60} height={60} className="w-12 h-12 sm:w-16 sm:h-16 object-contain" />
-                <Image src={Meta} alt="Amazon" width={60} height={60} className="w-12 h-12 sm:w-16 sm:h-16 object-contain" />
-                <Image src={Meta} alt="Adobe" width={60} height={60} className="w-12 h-12 sm:w-16 sm:h-16 object-contain" />
-
-                {/* Deuxième rangée */}
-                <Image src={Meta} alt="Apple" width={60} height={60} className="w-12 h-12 sm:w-16 sm:h-16 object-contain" />
-                <Image src={Meta} alt="Google Play" width={60} height={60} className="w-12 h-12 sm:w-16 sm:h-16 object-contain" />
-                <Image src={Meta} alt="GitHub" width={60} height={60} className="w-12 h-12 sm:w-16 sm:h-16 object-contain" />
-
-                {/* Troisième rangée */}
-                <Image src={Meta} alt="MongoDB" width={60} height={60} className="w-12 h-12 sm:w-16 sm:h-16 object-contain" />
-                <Image src={Meta} alt="Flutter" width={60} height={60} className="w-12 h-12 sm:w-16 sm:h-16 object-contain" />
-                <Image src={Meta} alt="LinkedIn" width={60} height={60} className="w-12 h-12 sm:w-16 sm:h-16 object-contain" />
+        {/* Companies Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {companies.map((company, index) => (
+            <div 
+              key={index}
+              className="bg-[#002b59] rounded-xl p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
+            >
+              <div className="flex items-center mb-4">
+                <div>
+                  <h3 className="text-[#F3F3E0] font-bold text-xl">
+                    {company.name}
+                  </h3>
+                  <p className="text-[#FEAE6F]">{company.period}</p>
+                </div>
               </div>
+              <h4 className="text-[#73EC8B] font-semibold text-lg mb-2">
+                {company.role}
+              </h4>
+              <p className="text-[#F3F3E0] text-sm">
+                {company.description}
+              </p>
             </div>
-            {/* Forme de cœur */}
-            <div className="absolute inset-0 bg-[#001F3F] transform rotate-45 z-0"></div>
-          </div>
+          ))}
+        </div>
+
+        {/* Additional Experience Button */}
+        <div className="text-center mt-12">
+          <button className="bg-[#73EC8B] text-[#001F3F] px-8 py-3 rounded-full font-semibold 
+            transform transition-all duration-300 hover:scale-105 hover:shadow-lg">
+            Voir plus d&apos;expériences
+          </button>
         </div>
       </div>
-      <Experience />
-    </>
+    </div>
   );
 }

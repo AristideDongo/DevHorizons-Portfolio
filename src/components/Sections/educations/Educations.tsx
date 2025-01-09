@@ -12,7 +12,7 @@ const EducationSection = () => {
         {/* Colonne de gauche - Message d'introduction */}
         <div className="lg:col-span-1">
           <div className="sticky top-[80px] sm:top-[100px]">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6 mt-[20px] text-[#F3F3E0]">
               Parcours Académique
             </h2>
             <div className="space-y-3 sm:space-y-4">

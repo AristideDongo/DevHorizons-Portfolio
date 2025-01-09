@@ -7,18 +7,20 @@ import { motion } from 'framer-motion';
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState('header');
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  const menuActive = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const menuClose = () => {
-    setIsOpen(false);
-  };
+  const menuItems = [
+    { href: '#header', label: 'Home' },
+    { href: '#about', label: 'Me' },
+    { href: '#educations', label: 'Educations' },
+    { href: '#formations', label: 'Formations' },
+    { href: '#certificate', label: 'Certificate' },
+    { href: '#work', label: 'Work' },
+    { href: '#project', label: 'Project' },
+    { href: '#contact', label: 'Contact' }
+  ];
 
   useEffect(() => {
-    if (typeof window === 'undefined') return;
-
     const handleScroll = () => {
       const sections = document.querySelectorAll('section');
       let currentSection = 'header';
@@ -31,139 +33,83 @@ export default function Navbar() {
       });
 
       setActiveSection(currentSection);
+      setScrolled(window.scrollY > 20);
     };
 
     window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <nav className="flex items-center justify-between p-4 bg-[#001F3F] text-white fixed top-0 left-0 w-full shadow-md z-50">
-      {/* Logo */}
-      <div className="text-2xl font-bold">
-        <Link href="/">JD</Link>
-      </div>
+    <nav 
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        scrolled 
+          ? 'bg-[#001F3F]/95 backdrop-blur-sm shadow-lg py-2' 
+          : 'bg-[#001F3F] py-4'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="flex justify-between items-center">
+          {/* Logo */}
+          <Link 
+            href="/" 
+            className="text-2xl font-bold text-white hover:text-[#73EC8B] transition-colors"
+          >
+            JD
+          </Link>
 
-      {/* Bouton Hamburger pour mobile */}
-      <button
-        className="text-white text-2xl md:hidden focus:outline-none"
-        onClick={menuActive}
-        aria-label="Toggle Menu"
-      >
-        <Squeeze
-          color="white"
-          size={24}
-          toggled={isOpen}
-          toggle={menuActive}
-          label="Toggle menu"
-        />
-      </button>
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center space-x-1">
+            {menuItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`relative px-4 py-2 text-sm font-medium transition-colors text-white hover:text-[#FEAE6F]`}
+              >
+                {item.label}
+                {activeSection === item.href.slice(1) && (
+                  <motion.div
+                    layoutId="activeSection"
+                    className="absolute bottom-0 left-0 w-full h-0.5"
+                    transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
+                  />
+                )}
+              </Link>
+            ))}
+          </div>
 
-      {/* Menu */}
-      <div
-        className={`${
-          isOpen ? 'block' : 'hidden'
-        } absolute top-full left-0 w-full bg-[#001F3F] md:static md:flex md:items-center md:justify-end md:w-auto`}
-      >
-        <Link
-          href="#header"
-          onClick={menuClose}
-          className={`block px-4 py-2 text-lg hover:bg-[#003366] md:hover:bg-transparent md:hover:text-gray-400 relative`}
-        >
-          Home
-          {activeSection === 'header' && (
-            <motion.div
-              transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
+            <Squeeze
+              color="#73EC8B"
+              size={24}
+              toggled={isOpen}
+              toggle={() => setIsOpen(!isOpen)}
+              label="Toggle menu"
             />
-          )}
-        </Link>
-        <Link
-          href="#me"
-          onClick={menuClose}
-          className={`block px-4 py-2 text-lg hover:bg-[#003366] md:hover:bg-transparent md:hover:text-gray-400 relative`}
-        >
-          Me
-          {activeSection === 'me' && (
-            <motion.div
-              transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
-            />
-          )}
-        </Link>
-        <Link
-          href="#educations"
-          onClick={menuClose}
-          className={`block px-4 py-2 text-lg hover:bg-[#003366] md:hover:bg-transparent md:hover:text-gray-400 relative`}
-        >
-          Educations
-          {activeSection === 'educations' && (
-            <motion.div
-              transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
-            />
-          )}
-        </Link>
-        <Link
-          href="#formations"
-          onClick={menuClose}
-          className={`block px-4 py-2 text-lg hover:bg-[#003366] md:hover:bg-transparent md:hover:text-gray-400 relative`}
-        >
-          Formations
-          {activeSection === 'formations' && (
-            <motion.div
-              transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
-            />
-          )}
-        </Link>
-        <Link
-          href="#certificate"
-          onClick={menuClose}
-          className={`block px-4 py-2 text-lg hover:bg-[#003366] md:hover:bg-transparent md:hover:text-gray-400 relative`}
-        >
-          Certificate
-          {activeSection === 'certificate' && (
-            <motion.div
-              transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
-            />
-          )}
-        </Link>
-        <Link
-          href="#work"
-          onClick={menuClose}
-          className={`block px-4 py-2 text-lg hover:bg-[#003366] md:hover:bg-transparent md:hover:text-gray-400 relative`}
-        >
-          Work
-          {activeSection === 'work' && (
-            <motion.div
-              transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
-            />
-          )}
-        </Link>
-        <Link
-          href="#project"
-          onClick={menuClose}
-          className={`block px-4 py-2 text-lg hover:bg-[#003366] md:hover:bg-transparent md:hover:text-gray-400 relative`}
-        >
-          Project
-          {activeSection === 'project' && (
-            <motion.div
-              transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
-            />
-          )}
-        </Link>
-        <Link
-          href="#contact"
-          onClick={menuClose}
-          className={`block px-4 py-2 text-lg hover:bg-[#003366] md:hover:bg-transparent md:hover:text-gray-400 relative`}
-        >
-          Contact
-          {activeSection === 'contact' && (
-            <motion.div
-              transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
-            />
-          )}
-        </Link>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="md:hidden absolute top-full left-0 w-full bg-[#001F3F]/95 backdrop-blur-sm shadow-lg"
+          >
+            {menuItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setIsOpen(false)}
+                className={`block px-6 py-3 text-sm font-medium transition-colors text-white hover:bg-[#002b59] hover:text-[#FEAE6F]`}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </motion.div>
+        )}
       </div>
     </nav>
   );
