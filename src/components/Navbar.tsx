@@ -64,7 +64,7 @@ export default function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`relative px-4 py-2 text-sm font-medium transition-colors text-white hover:text-[#FEAE6F]`}
+                className={`relative px-4 py-2 text-[16px] font-medium transition-colors text-white hover:text-[#FEAE6F]`}
               >
                 {item.label}
                 {activeSection === item.href.slice(1) && (

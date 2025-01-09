@@ -1,6 +1,5 @@
 import React from 'react';
-import { Award, Calendar } from 'lucide-react';
-import Image from 'next/image';
+import { Calendar } from 'lucide-react';
 import { certifications } from '@/data/certificate';
 
 const CertificationPage = () => {
@@ -22,22 +21,11 @@ const CertificationPage = () => {
         {/* Certifications Grid */}
         {certifications.map((category, idx) => (
           <div key={idx} className="mb-12 sm:mb-16">
-            <h2 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 flex items-center">
-              <Award className="w-5 h-5 sm:w-6 sm:h-6 mr-2 text-blue-600" />
-              {category.category}
-            </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
               {category.items.map((cert, certIdx) => (
                 <div key={certIdx} className="bg-white rounded-xl shadow-lg overflow-hidden">
                   <div className="p-4 sm:p-6">
                     <div className="flex items-start mb-3 sm:mb-4">
-                      <Image
-                        src={cert.logoUrl}
-                        alt={`${cert.issuer} logo`}
-                        width={80}
-                        height={80}
-                        className="w-12 h-12 sm:w-16 sm:h-16 rounded-lg mr-3 sm:mr-4"
-                      />
                       <div>
                         <h3 className="text-lg sm:text-xl font-bold">{cert.title}</h3>
                         <p className="text-sm sm:text-base text-gray-600">{cert.issuer}</p>
