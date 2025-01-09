@@ -12,7 +12,6 @@ export default function Navbar() {
   const menuItems = [
     { href: '#header', label: 'Home' },
     { href: '#about', label: 'Me' },
-    { href: '#educations', label: 'Educations' },
     { href: '#formations', label: 'Formations' },
     { href: '#certificate', label: 'Certificate' },
     { href: '#work', label: 'Work' },
